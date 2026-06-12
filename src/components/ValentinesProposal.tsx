@@ -122,8 +122,8 @@ export default function ValentinesProposal() {
               Te amo! E quero te amar cada vez mais!
             </h2>
             <img
-              src={`${typeof window !== "undefined" && window.location.hostname.includes("github.io") ? "/valentines" : ""}/sad_hamster.png`}
-              alt="Sad Hamster"
+              src={`${typeof window !== "undefined" && window.location.hostname.includes("github.io") ? "/valentines" : ""}/eufeliz.jpg`}
+              alt="Feliz"
               className="w-[200px] h-[200px]"
             />
             <div className="flex space-x-4 mt-10">
@@ -164,8 +164,8 @@ export default function ValentinesProposal() {
             Obrigado meu amor 💕
             <p className="text-sm mt-4">(e continua me escrevendo pfvr 💌)</p>
             <img
-              src={`${typeof window !== "undefined" && window.location.hostname.includes("github.io") ? "/valentines" : ""}/eufeliz.jpg`}
-              alt="Eu sendo muito feliz"
+              src={`${typeof window !== "undefined" && window.location.hostname.includes("github.io") ? "/valentines" : ""}/hamster_jumping.gif`}
+              alt="Hamster Feliz"
               className="w-[200px] h-[200px]"
             />
           </motion.div>
