@@ -85,7 +85,7 @@ export default function ValentinesProposal() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
-            Eu tenho algo pra te dizer!
+            Eu tenho algo pra te dizer...
           </motion.h2>
         )}
         {step === 2 && (
