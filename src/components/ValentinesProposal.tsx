@@ -8,11 +8,6 @@ const playfairDisplay = Playfair_Display({
   subsets: ["latin"],
 });
 
-const basePath =
-  typeof window !== "undefined" && window.location.hostname.includes("github.io")
-    ? "/valentines"
-    : "";
-
 // 18 images
 const images = [
   "/game-photos/1.jpg",
@@ -127,7 +122,7 @@ export default function ValentinesProposal() {
               Te amo! E quero te amar cada vez mais!
             </h2>
             <img
-              src={`${basePath}/sad_hamster.png`}
+              src={`${typeof window !== "undefined" && window.location.hostname.includes("github.io") ? "/valentines" : ""}/sad_hamster.png`}
               alt="Sad Hamster"
               className="w-[200px] h-[200px]"
             />
@@ -169,8 +164,8 @@ export default function ValentinesProposal() {
             Obrigado meu amor 💕
             <p className="text-sm mt-4">(e continua me escrevendo pfvr 💌)</p>
             <img
-              src={`${basePath}/hamster_jumping.gif`}
-              alt="Hamster Feliz"
+              src={`${typeof window !== "undefined" && window.location.hostname.includes("github.io") ? "/valentines" : ""}/eufeliz.jpg`}
+              alt="Eu sendo muito feliz"
               className="w-[200px] h-[200px]"
             />
           </motion.div>
