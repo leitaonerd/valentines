@@ -5,7 +5,8 @@ const nextConfig: NextConfig = {
   basePath: "/valentines",
   assetPrefix: "/valentines/",
   images: {
-    unoptimized: true,
+    loader: "custom",
+    loaderFile: "./src/lib/imageLoader.ts",
   },
 };
 

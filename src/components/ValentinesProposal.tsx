@@ -3,6 +3,7 @@ import { Playfair_Display } from "next/font/google";
 import { motion, AnimatePresence } from "framer-motion";
 import Fireworks from "@fireworks-js/react";
 import Image from "next/image";
+import imageLoader from "@/lib/imageLoader";
 
 const playfairDisplay = Playfair_Display({
   display: "swap",
@@ -102,6 +103,7 @@ export default function ValentinesProposal() {
               {images.slice(0, 18).map((src, index) => (
                 <div key={index} className="relative h-full">
                   <Image
+                    loader={imageLoader}
                     src={src}
                     alt={`Memory ${index + 1}`}
                     fill
@@ -117,6 +119,7 @@ export default function ValentinesProposal() {
               Te amo! E quero te amar cada vez mais!
             </h2>
             <Image
+              loader={imageLoader}
               src="/sad_hamster.png"
               alt="Sad Hamster"
               width={200}
@@ -160,6 +163,7 @@ export default function ValentinesProposal() {
             Obrigado princesa 💕
             <p className="text-sm mt-4">(não esquece de me escrever sempre 💌)</p>
             <Image
+              loader={imageLoader}
               src="/hamster_jumping.gif"
               alt="Hamster Feliz"
               width={200}

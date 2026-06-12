@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import imageLoader from "@/lib/imageLoader";
 import { useState, useEffect } from "react";
 
 // 18 images
@@ -95,6 +96,7 @@ export default function PhotoPairGame({
         {images.map((image, i) => (
           <Image
             key={i}
+            loader={imageLoader}
             src={image}
             alt={`Image ${i + 1}`}
             fill
@@ -139,6 +141,7 @@ export default function PhotoPairGame({
                 style={{ backfaceVisibility: "hidden" }}
               >
                 <Image
+                  loader={imageLoader}
                   src={images[index]}
                   alt={`Imagen ${index + 1}`}
                   fill
