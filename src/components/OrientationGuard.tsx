@@ -25,7 +25,7 @@ export default function OrientationGuard({
 
   if (isPortrait) {
     return (
-      <div className="fixed inset-0 z-[100] bg-black flex flex-col items-center justify-center text-center p-8">
+      <div className="fixed inset-0 z-[100] bg-rose-900 flex flex-col items-center justify-center text-center p-8">
         <motion.div
           animate={{ rotate: [0, 90, 0] }}
           transition={{ duration: 2, repeat: Infinity }}

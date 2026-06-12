@@ -119,7 +119,7 @@ export default function PhotoPairGame({
             {/* Back of the card */}
             {!selected.includes(index) && !matched.includes(index) && (
               <motion.div
-                className="w-full h-full bg-gray-300 rounded-sm lg:rounded-md absolute z-10"
+                className="w-full h-full bg-gradient-to-br from-pink-300 to-rose-400 rounded-sm lg:rounded-md absolute z-10 shadow-sm border border-pink-200"
                 initial={{ rotateY: 0 }}
                 animate={{
                   rotateY:
@@ -156,7 +156,7 @@ export default function PhotoPairGame({
                 animate={{ scale: [1, 1.1, 1], opacity: [1, 0, 1] }}
                 transition={{ duration: 0.5 }}
               >
-                <div className="w-full h-full bg-red-500 rounded-sm lg:rounded-md"></div>
+                <div className="w-full h-full bg-rose-300 rounded-sm lg:rounded-md"></div>
               </motion.div>
             )}
           </motion.div>

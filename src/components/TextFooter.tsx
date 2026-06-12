@@ -11,20 +11,20 @@ export default function TextFooter() {
     <>
       {/* Left Text */}
       <h1
-        className={`absolute left-10 bottom-5 transform -translate-y-1/2 text-white text-4xl lg:text-5xl font-bold leading-tight ${playfairDisplay.className}`}
+        className={`absolute left-10 bottom-5 transform -translate-y-1/2 text-rose-800 text-4xl lg:text-5xl font-bold leading-tight ${playfairDisplay.className}`}
       >
-        <span className="text-gray-400">Ache</span> <br /> o par das fotos
+        <span className="text-[#b6ddff]">Ache</span> <br /> o par das fotos
       </h1>
 
       {/* Right Text */}
       <h1
-        className={`absolute right-10 bottom-5 transform -translate-y-1/2 text-white text-4xl lg:text-5xl font-bold leading-tight text-right ${playfairDisplay.className}`}
+        className={`absolute right-10 bottom-5 transform -translate-y-1/2 text-rose-800 text-4xl lg:text-5xl font-bold leading-tight text-right ${playfairDisplay.className}`}
       >
-        pra revelar <br /> <span className="text-gray-400">uma surpresa</span>
+        pra revelar <br /> <span className="text-[#b6ddff]">uma surpresa</span>
       </h1>
 
       {/* Copyright */}
-      <p className="absolute bottom-5 right-5 text-white text-sm opacity-15 hover:opacity-50">
+      <p className="absolute bottom-5 right-5 text-rose-600 text-sm opacity-30 hover:opacity-70">
         © {new Date().getFullYear()}{" "}
         <Link href="https://github.com/leitaonerd">leitaonerd</Link>
       </p>

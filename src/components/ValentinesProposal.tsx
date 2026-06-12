@@ -73,7 +73,7 @@ export default function ValentinesProposal() {
         {step === 0 && (
           <motion.h2
             key="step-0"
-            className={`text-4xl font-semibold mb-4 ${playfairDisplay.className}`}
+            className={`text-4xl font-semibold mb-4 text-rose-800 ${playfairDisplay.className}`}
             transition={{ duration: 1 }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -85,7 +85,7 @@ export default function ValentinesProposal() {
         {step === 1 && (
           <motion.h2
             key="step-1"
-            className={`text-4xl font-semibold mb-4 ${playfairDisplay.className}`}
+            className={`text-4xl font-semibold mb-4 text-rose-800 ${playfairDisplay.className}`}
             transition={{ duration: 3 }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -117,24 +117,24 @@ export default function ValentinesProposal() {
             </div>
 
             <h2
-              className={`text-5xl font-semibold mb-8 ${playfairDisplay.className}`}
+              className={`text-5xl font-semibold mb-8 text-rose-700 ${playfairDisplay.className}`}
             >
               Te amo! E quero te amar cada vez mais!
             </h2>
             <img
               src={`${typeof window !== "undefined" && window.location.hostname.includes("github.io") ? "/valentines" : ""}/eufeliz.jpg`}
               alt="Feliz"
-              className="w-[200px] h-[200px]"
+              className="w-[200px] h-[200px] rounded-xl shadow-md"
             />
             <div className="flex space-x-4 mt-10">
               <button
-                className="px-6 py-2 text-lg font-semibold text-white bg-gradient-to-r from-pink-500 to-rose-500 rounded-xl hover:from-pink-600 hover:to-rose-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+                className="px-6 py-2 text-lg font-semibold text-white bg-gradient-to-r from-pink-400 to-rose-500 rounded-xl hover:from-pink-500 hover:to-rose-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
                 onClick={handleYesClick}
               >
                 Por favor! 🥰
               </button>
               <button
-                className="px-6 py-2 text-lg font-semibold text-white bg-gradient-to-r from-gray-500 to-gray-600 rounded-xl hover:from-gray-600 hover:to-gray-700 transform hover:scale-95 transition-all duration-300 shadow-lg"
+                className="px-6 py-2 text-lg font-semibold text-rose-800 bg-gradient-to-r from-[#b6ddff] to-blue-200 rounded-xl hover:from-[#a0cfff] hover:to-blue-300 transform hover:scale-95 transition-all duration-300 shadow-lg"
                 style={
                   position
                     ? {
@@ -155,18 +155,18 @@ export default function ValentinesProposal() {
         {step === 3 && (
           <motion.div
             key="step-3"
-            className={`text-4xl font-semibold mb-4 flex flex-col justify-center items-center ${playfairDisplay.className}`}
+            className={`text-4xl font-semibold mb-4 flex flex-col justify-center items-center text-rose-800 ${playfairDisplay.className}`}
             transition={{ duration: 1 }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
             Obrigado meu amor 💕
-            <p className="text-sm mt-4">(e continua me escrevendo pfvr 💌)</p>
+            <p className="text-sm mt-4 text-rose-500">(e continua me escrevendo pfvr 💌)</p>
             <img
               src={`${typeof window !== "undefined" && window.location.hostname.includes("github.io") ? "/valentines" : ""}/hamster_jumping.gif`}
               alt="Hamster Feliz"
-              className="w-[200px] h-[200px]"
+              className="w-[200px] h-[200px] rounded-xl shadow-md"
             />
           </motion.div>
         )}
@@ -177,6 +177,31 @@ export default function ValentinesProposal() {
           <Fireworks
             options={{
               autoresize: true,
+              rocketsPoint: {
+                min: 0,
+                max: 100,
+              },
+              opacity: 0.8,
+              acceleration: 1.02,
+              friction: 0.97,
+              gravity: 1.5,
+              particles: 80,
+              traceLength: 3,
+              traceSpeed: 8,
+              explosion: 8,
+              intensity: 25,
+              flickering: 50,
+              hue: {
+                min: 320,
+                max: 340,
+              },
+              delay: {
+                min: 15,
+                max: 30,
+              },
+              sound: {
+                enabled: false,
+              },
             }}
             style={{
               width: "100%",
