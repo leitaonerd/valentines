@@ -1,12 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
-import imageLoader from "@/lib/imageLoader";
 import { useState, useEffect } from "react";
 
 // 18 images
-const images = [
+const imagePaths = [
   "/game-photos/1.jpg",
   "/game-photos/2.jpg",
   "/game-photos/3.jpg",
@@ -26,6 +24,13 @@ const images = [
   "/game-photos/17.jpg",
   "/game-photos/18.jpg",
 ];
+
+const basePath =
+  typeof window !== "undefined" && window.location.hostname.includes("github.io")
+    ? "/valentines"
+    : "";
+
+const images = imagePaths.map((p) => `${basePath}${p}`);
 
 // Create 18 pairs of images (36 images in total)
 const imagePairs = images.flatMap((image) => [image, image]);
@@ -58,7 +63,7 @@ export default function PhotoPairGame({
   const [selected, setSelected] = useState<number[]>([]);
   const [matched, setMatched] = useState<number[]>([]);
   const [incorrect, setIncorrect] = useState<number[]>([]);
-  const [images] = useState(() => shuffleArray([...imagePairs]));
+  const [shuffledImages] = useState(() => shuffleArray([...imagePairs]));
 
   const handleClick = async (index: number) => {
     if (selected.length === 2 || matched.includes(index) || selected.includes(index)) return;
@@ -67,14 +72,14 @@ export default function PhotoPairGame({
       const firstIndex = selected[0];
       setSelected((prev) => [...prev, index]);
 
-      if (images[firstIndex] === images[index]) {
+      if (shuffledImages[firstIndex] === shuffledImages[index]) {
         setMatched((prev) => [...prev, firstIndex, index]);
         setSelected([]);
       } else {
-        await new Promise((resolve) => setTimeout(resolve, 1000)); // Wait 1 second
+        await new Promise((resolve) => setTimeout(resolve, 1000));
 
         setIncorrect([firstIndex, index]);
-        setTimeout(() => setIncorrect([]), 1000); // Clear incorrect after 1 second
+        setTimeout(() => setIncorrect([]), 1000);
         setTimeout(() => setSelected([]), 1000);
       }
     } else {
@@ -93,15 +98,11 @@ export default function PhotoPairGame({
     <div className="grid grid-cols-9 gap-1 lg:gap-2 max-w-[95vw] mx-auto place-items-center">
       {/* Image preload */}
       <div className="hidden">
-        {images.map((image, i) => (
-          <Image
+        {shuffledImages.map((image, i) => (
+          <img
             key={i}
-            loader={imageLoader}
             src={image}
             alt={`Image ${i + 1}`}
-            fill
-            className="object-cover"
-            priority
           />
         ))}
       </div>
@@ -113,7 +114,7 @@ export default function PhotoPairGame({
             className="w-[11vh] h-[11vh] lg:w-20 lg:h-20 relative cursor-pointer"
             whileHover={{ scale: 1.1 }}
             onClick={() => handleClick(index)}
-            style={{ perspective: "1000px" }} // Add perspective for 3D effect
+            style={{ perspective: "1000px" }}
           >
             {/* Back of the card */}
             {!selected.includes(index) && !matched.includes(index) && (
@@ -140,12 +141,10 @@ export default function PhotoPairGame({
                 transition={{ duration: 0.5 }}
                 style={{ backfaceVisibility: "hidden" }}
               >
-                <Image
-                  loader={imageLoader}
-                  src={images[index]}
+                <img
+                  src={shuffledImages[index]}
                   alt={`Imagen ${index + 1}`}
-                  fill
-                  className="rounded-sm lg:rounded-md object-cover"
+                  className="w-full h-full object-cover rounded-sm lg:rounded-md"
                 />
               </motion.div>
             )}

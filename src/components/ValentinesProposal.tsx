@@ -2,13 +2,16 @@ import { useState, useEffect } from "react";
 import { Playfair_Display } from "next/font/google";
 import { motion, AnimatePresence } from "framer-motion";
 import Fireworks from "@fireworks-js/react";
-import Image from "next/image";
-import imageLoader from "@/lib/imageLoader";
 
 const playfairDisplay = Playfair_Display({
   display: "swap",
   subsets: ["latin"],
 });
+
+const basePath =
+  typeof window !== "undefined" && window.location.hostname.includes("github.io")
+    ? "/valentines"
+    : "";
 
 // 18 images
 const images = [
@@ -39,6 +42,15 @@ export default function ValentinesProposal() {
     left: string;
   } | null>(null);
   const [showFireworks, setShowFireworks] = useState(false);
+  const [prefixedImages, setPrefixedImages] = useState<string[]>([]);
+
+  useEffect(() => {
+    const bp =
+      typeof window !== "undefined" && window.location.hostname.includes("github.io")
+        ? "/valentines"
+        : "";
+    setPrefixedImages(images.map((p) => `${bp}${p}`));
+  }, []);
 
   const getRandomPosition = () => {
     const randomTop = Math.random() * 80;
@@ -48,11 +60,9 @@ export default function ValentinesProposal() {
 
   useEffect(() => {
     if (step < 2) {
-      // Change step after 5 seconds
       const timer = setTimeout(() => {
         setStep((prevStep) => prevStep + 1);
       }, 5000);
-
       return () => clearTimeout(timer);
     }
   }, [step]);
@@ -86,7 +96,7 @@ export default function ValentinesProposal() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
-            Eu tenho algo pra te dizer...
+            Eu tenho algo pra te dizer!
           </motion.h2>
         )}
         {step === 2 && (
@@ -100,14 +110,12 @@ export default function ValentinesProposal() {
           >
             {/* Image Grid Background */}
             <div className="absolute inset-0 grid grid-cols-6 opacity-10">
-              {images.slice(0, 18).map((src, index) => (
+              {prefixedImages.slice(0, 18).map((src, index) => (
                 <div key={index} className="relative h-full">
-                  <Image
-                    loader={imageLoader}
+                  <img
                     src={src}
                     alt={`Memory ${index + 1}`}
-                    fill
-                    className="object-cover"
+                    className="w-full h-full object-cover"
                   />
                 </div>
               ))}
@@ -118,12 +126,10 @@ export default function ValentinesProposal() {
             >
               Te amo! E quero te amar cada vez mais!
             </h2>
-            <Image
-              loader={imageLoader}
-              src="/sad_hamster.png"
+            <img
+              src={`${basePath}/sad_hamster.png`}
               alt="Sad Hamster"
-              width={200}
-              height={200}
+              className="w-[200px] h-[200px]"
             />
             <div className="flex space-x-4 mt-10">
               <button
@@ -160,15 +166,12 @@ export default function ValentinesProposal() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
-            Obrigado princesa 💕
-            <p className="text-sm mt-4">(não esquece de me escrever sempre 💌)</p>
-            <Image
-              loader={imageLoader}
-              src="/hamster_jumping.gif"
+            Obrigado meu amor 💕
+            <p className="text-sm mt-4">(e continua me escrevendo pfvr 💌)</p>
+            <img
+              src={`${basePath}/hamster_jumping.gif`}
               alt="Hamster Feliz"
-              width={200}
-              height={200}
-              unoptimized
+              className="w-[200px] h-[200px]"
             />
           </motion.div>
         )}
