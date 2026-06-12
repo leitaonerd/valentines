@@ -2,7 +2,7 @@
 
 Esse site foi feito com todo carinho do mundo pra você. 💌
 
-Demorou um pouquinho, mas cada foto, cada detalhe, cada letrinha foi pensada pensando no seu sorriso.
+Demorou um pouquinho, mas cada foto, cada detalhe, cada letrinha foi pensada pensando em te mostrar um pouquinho do que tem aqui no meu coração.
 
 Obrigado por ser a pessoa mais incrível que eu já conheci.  
 Obrigado por cada risada, cada abraço, cada momento do nosso lado.  
